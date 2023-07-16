@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'sinrato.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':   'moviesdb',
+        'USER':  'moviesuser',
+        'PASSWORD':'93QB1ULF9aC5',
+        'HOST':'localhost',
+        'PORT': 5432,
     }
 }
 
