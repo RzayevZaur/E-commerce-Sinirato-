@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from .models import movieP
+from .models import moviep
 
-admin.site.register(movieP)
+
+admin.site.register(moviep)
 
 # Register your models here.

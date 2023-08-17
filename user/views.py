@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.utils import timezone
+
 from django.http import HttpResponse
 
 
@@ -7,11 +7,13 @@ from django.http import HttpResponse
 
 
 def login(request):
-    now=timezone.now()
+
+   
+
     context={
 
-        'vaxt':now,
         'title':'login page',
+   
 
     }
     return render(request,'login.html',context=context)
@@ -21,10 +23,9 @@ def login(request):
 
 
 def myaccount(request):
-    now=timezone.now()
+ 
     context={
 
-        'vaxt':now,
         'title':'my-account page',
 
     }
@@ -33,11 +34,11 @@ def myaccount(request):
      
 
 def register(request):
-    now=timezone.now()
+
     context={
 
-        'vaxt':now,
-        'title':'register page',
+
+        'title':'register page'
     }
     return render(request,'register.html',context=context)
      

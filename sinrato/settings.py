@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'order',
     'blog',
     'user',
-    'core'
+    'core',
+    
     
 
 ]
@@ -83,12 +84,13 @@ WSGI_APPLICATION = 'sinrato.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':   'moviesdb',
+        'NAME':  'moviesdb',
         'USER':  'moviesuser',
         'PASSWORD':'93QB1ULF9aC5',
         'HOST':'localhost',
         'PORT': 5432,
     }
+    
 }
 
 
@@ -128,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR /  "static"
+STATIC_ROOT = BASE_DIR /'static'
 
 STATICFILES_DIRS = [
 
@@ -139,3 +141,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_URL = '/media/'
+

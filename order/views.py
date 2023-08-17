@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from django.utils import timezone
+
 from django.http import HttpResponse
  
 # Create your views here.
 
 
 def order(request):
-    now =timezone.now()
+   
     context ={
-            'vaxt': now,
+         
             'title': 'order page'
     }
     
@@ -16,12 +16,12 @@ def order(request):
 
 
 def orders(request):
-    now =timezone.now()
+
 
 
     context ={
 
-        'vaxt': now,
+        
         'title': 'orders html'
     }
 

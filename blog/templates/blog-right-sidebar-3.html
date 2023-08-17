@@ -25,8 +25,8 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% block container %}
-    <!-- breadcrumb area start -->
+{% block container %} 
+    <!-- breadcrumb area s `/ tart -->
     <div class="breadcrumb-area mb-30">
         <div class="container-fluid">
             <div class="row">
@@ -52,138 +52,28 @@
                <div class="col-lg-9">
                    <div class="blog-wrapper-inner">
                        <div class="row">
+                         {% for i in allblog %}
                             <div class="col-sm-6 col-lg-4">
                                 <div class="single-blogg-item mb-30">
                                     <div class="blog-thumb-active owl-carousel">
                                         <div class="blog-thumb blog--hover">
-                                                <a href="blog-details.html"><img src="{%static 'img/blog/blog1.jpg'%}" alt=""></a>
+                                                <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img.url }}" alt=""></a>
                                         </div>
                                         <div class="blog-thumb">
-                                                <a href="blog-details.html"><img src="{%static 'img/blog/blog2.jpg'%}" alt=""></a>
+                                                <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img2.url }}" alt=""></a>
                                         </div>
                                         <div class="blog-thumb">
-                                            <a href="blog-details.html"><img src="{%static 'img/blog/blog3.jpg'%}" alt=""></a>
+                                            <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img3.url }}" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
+                                        <h5><a href="{% url 'blog' pk=i.pk  %}">{{ i.title }}</a></h5>
+                                       
+                                        {{i.description|truncatechars:150|safe}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blogg-thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{%static 'img/blog/blog2.jpg'%}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blogg-thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{%static 'img/blog/blog4.jpg'%}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blogg-thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{%static 'img/blog/blog5.jpg'%}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blogg-thumb mb-15">
-                                        <div class="blog-thumb ratio ratio-16x9">
-                                            <iframe src="https://www.youtube.com/embed/0Wa7zVpCnIo" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                    <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blogg-thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{%static 'img/blog/blog6.jpg'%}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blogg-thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{%static 'img/blog/blog2.jpg'%}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blogg-thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{%static 'img/blog/blog3.jpga'%}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blogg-thumb">
-                                        <a href="blog-details.html">
-                                            <img src="{%static 'img/blog/blog1.jpg'%}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="blogg-content">
-                                        <span class="post-date">20 oct 2019</span>
-                                        <h5><a href="blog-details.html">London Fashion Week 360° Candy Rock & Royal Fashion Day</a></h5>
-                                        <p>Maria Denardo is the Fashion Director at theFashionSpot. Prior to joining tFS, she worked as...</p>
-                                    </div>
-                                </div>
-                            </div>
+                        {% endfor %}
                        </div>
                    </div>
                    <div class="paginatoin-area text-center pt-40">
@@ -213,73 +103,61 @@
                             <div class="sidebar-content-box">
                                 <div class="filter-attribute-container">
                                     <ul>
-                                        <li><a class="active" href="#">Categories 1 (05)</a></li>
-                                        <li><a href="#">Categories 2 (03)</a></li>
-                                        <li><a href="#">Categories 3 (10)</a></li>
-                                        <li><a href="#">Categories 4 (02)</a></li>
+                                        {% for category in categories %}
+                                            <li><a href="{% url 'category' category.name %}">{{ category.name }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <!-- categories filter end -->
                         <!-- categories filter start -->
+
+                        
                         <div class="single-sidebar mb-45">
                             <div class="sidebar-inner-title mb-25">
                                 <h3>Recent post</h3>
                             </div>
                             <div class="sidebar-content-box">
-                                <div class="filter-attribute-container">
+                                {% for recend in allblog|slice:":4" %}
+                                <div class="filter-attribute-container"> 
                                     <ul>
-                                        <li><a class="active" href="#">blog image post</a></li>
-                                        <li><a href="#">Post with gallery</a></li>
-                                        <li><a href="#">Post with Audio</a></li>
-                                        <li><a href="#">Post with Video</a></li>
-                                        <li><a href="#">Maecenas ultricies</a></li>
+                                        <li><a class="" href="{% url 'blog' recend.pk %}">{{recend.title}}</a></li>
                                     </ul>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
+
+
                         <!-- categories filter end -->
                         <!-- categories filter start -->
-                        <div class="single-sidebar mb-45">
-                            <div class="sidebar-inner-title mb-25">
-                                <h3>Blog archives</h3>
-                            </div>
-                            <div class="sidebar-content-box">
-                                <div class="filter-attribute-container">
-                                    <ul>
-                                        <li><a class="active" href="#">March 2019 (02)</a></li>
-                                        <li><a href="#">December 2019 (01)</a></li>
-                                        <li><a href="#">April 2019 (05)</a></li>
-                                        <li><a href="#">September 2017 (02)</a></li>
-                                        <li><a href="#">January 2019 (03)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    
                         <!-- categories filter end -->
                         <!-- categories filter start -->
+                       
                         <div class="single-sidebar mb-45">
                             <div class="sidebar-inner-title mb-25">
                                 <h3>Tag</h3>
                             </div>
+                            {% for i in tag %}
                             <div class="sidebar-content-box">
                                 <div class="blog-tag-line">
-                                    <a href="#">fashion</a>
-                                    <a href="#">cloath</a>
-                                    <a href="#">camera</a>
-                                    <a href="#">laptop</a>
-                                    <a href="#">bag</a>
-                                    <a href="#">watch</a>
+                                   
+                                    <a href="{% url 'blog' pk=i.pk  %}">{{i.title}}</a>
+                                   
+                                    
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
+                       
                         <!-- categories filter end -->
                     </div>
                     <!-- sidebar promote picture start -->
                     <div class="single-sidebar mb-30">
                         <div class="sidebar-thumb">
-                            <a href="#"><img src="{%static 'ximg/banner/img-static-sidebar.jpg'%}" alt=""></a>
+                            <a href="#"><img src="{% static 'ximg/banner/img-static-sidebar.jpg' %}" alt=""></a>
                         </div>
                     </div>
                     <!-- sidebar promote picture end -->
@@ -293,9 +171,6 @@
    <div class="scroll-top not-visible">
         <i class="fa fa-angle-up"></i>
     </div> <!-- /End Scroll to Top -->
-
-
-
 
 
 
