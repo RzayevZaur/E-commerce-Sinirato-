@@ -79,56 +79,52 @@
                 <div class="col-lg-5">
                     <div class="product-large-slider mb-20">
                         <div class="pro-large-img">
-                            <img src="{%static 'img/product/product-4.jpg' %}" alt="" />
+                            <img src="{{productdetail.img.url}}" alt="" />
                             <div class="img-view">
-                                <a class="img-popup" href="{%static 'img/product/product-4.jpg'%}"><i class="fa fa-search"></i></a>
+                                <a class="img-popup" href=""><i class="fa fa-search"></i></a>
                             </div>
                         </div>
                         <div class="pro-large-img">
-                            <img src="{% static 'img/product/product-5.jpg' %}" alt=""/>
+                            
                             <div class="img-view">
-                                <a class="img-popup" href="{%static 'img/product/product-5.jpg'%}"><i class="fa fa-search"></i></a>
+                                
                             </div>
                         </div>
                         <div class="pro-large-img">
-                            <img src="{% static 'img/product/product-6.jpg'%}" alt=""/>
+                           
                             <div class="img-view">
-                                <a class="img-popup" href="{%static 'img/product/product-6.jpg'%}"><i class="fa fa-search"></i></a>
+                                
                             </div>
                         </div>
                         <div class="pro-large-img">
-                            <img src="{% static 'img/product/product-7.jpg'%}" alt=""/>
+                            
                             <div class="img-view">
-                                <a class="img-popup" href="{%static 'img/product/product-7.jpg'%}"><i class="fa fa-search"></i></a>
+                                
                             </div>
                         </div>
                         <div class="pro-large-img">
-                            <img src="{% static 'img/product/product-8.jpg' %}" alt=""/>
                             <div class="img-view">
-                                <a class="img-popup" href="{%static 'img/product/product-8.jpg' %}"><i class="fa fa-search"></i></a>
+                               
                             </div>
                         </div>
                         <div class="pro-large-img">
-                            <img src="{% static 'img/product/product-9.jpg' %}" alt=""/>
+                            
                             <div class="img-view">
-                                <a class="img-popup" href="{% static 'img/product/product-9.jpg'%}"><i class="fa fa-search"></i></a>
+                                <a class="img-popup" href="{{productdetail.img.url}}"><i class="fa fa-search"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="pro-nav">
-                        <div class="pro-nav-thumb"><img src="{%static 'img/product/product-4.jpg'%}" alt="" /></div>
-                        <div class="pro-nav-thumb"><img src="{%static 'img/product/product-5.jpg'%}" alt="" /></div>
-                        <div class="pro-nav-thumb"><img src="{%static 'img/product/product-6.jpg'%}" alt="" /></div>
-                        <div class="pro-nav-thumb"><img src="{%static 'img/product/product-7.jpg'%}" alt="" /></div>
-                        <div class="pro-nav-thumb"><img src="{%static 'img/product/product-8.jpg'%}" alt="" /></div>
-                        <div class="pro-nav-thumb"><img src="{%static 'img/product/product-9.jpg'%}" alt="" /></div>
+                        <div class="pro-nav-thumb"><img src="{{productdetail.img.url}}" alt="" /></div>
+                        <div class="pro-nav-thumb"><img src="{{productdetail.img2.url}}" alt="" /></div>
+                     \
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="product-details-inner">
                         <div class="product-details-contentt">
                             <div class="pro-details-name mb-10">
-                                <h3>Bose SoundLink Bluetooth Speaker</h3>
+                                <h3>{{productdetail.title}}</h3>
                             </div>
                             <div class="pro-details-review mb-20">
                                 <ul>
@@ -143,19 +139,19 @@
                                 </ul>
                             </div>
                             <div class="price-box mb-15">
-                                <span class="regular-price"><span class="special-price">£50.00</span></span>
-                                <span class="old-price"><del>£60.00</del></span>
+                                <span class="regular-price"><span class="special-price">{{productdetail.the_price}}</span></span>
+                                <span class="old-price"><del>{{productdetail.sale}}</del></span>
                             </div>
                             <div class="product-detail-sort-des pb-20">
-                                <p>Canon's press material for the EOS 5D states that it 'defines (a) new D-SLR category', while we're not typically too concerned with marketing talk this particular statement is clearly pretty accurate...</p>
+                                <p>{{productdetail.description}}</p>
                             </div>
                             <div class="pro-details-list pt-20">
                                 <ul>
-                                    <li><span>Ex Tax :</span>£60.24</li>
-                                    <li><span>Brands :</span><a href="#">Canon</a></li>
-                                    <li><span>Product Code :</span>Digital</li>
-                                    <li><span>Reward Points :</span>200</li>
-                                    <li><span>Availability :</span>In Stock</li>
+                                    <li><span>Ex Tax :</span>{{productdetail.Ex_Tax}}</li>
+                                    <li><span>Brands :</span><a href="#">{{productdetail.Brands}}</a></li>
+                                    <li><span>Product Code :</span>{{productdetail.Product_Code}}</li>
+                                    <li><span>Reward Points :</span>{{productdetail.Reward_Points}}</li>
+                                    <li><span>Availability :</span>{{productdetail.Availability}}</li>
                                 </ul>
                             </div>
                             <div class="product-availabily-option mt-15 mb-15">
