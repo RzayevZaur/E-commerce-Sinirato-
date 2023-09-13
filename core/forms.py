@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contactinfo
+from .models import Contactinfo,Subscriber
 from django.forms import widgets
 class contactforms(forms.ModelForm):
     class Meta:
@@ -12,3 +12,20 @@ class contactforms(forms.ModelForm):
             'Phone':widgets.NumberInput(attrs={'class':'form-control','placeholder': 'Phone'}),
             'Subject':widgets.TextInput(attrs={'class':'form-control','placeholder': 'Subject'})
         }
+
+
+
+class SubscriberForm(forms.ModelForm):
+        class Meta:
+                model = Subscriber
+                fields = ['email']
+                widgets = {
+                'email': widgets.EmailInput(attrs={'class': 'email-box', 
+                'placeholder': 'Enter your email address'} ),
+                }
+
+        def clean_email(self):
+                email = self.cleaned_data.get('email')
+                if Subscriber.objects.filter(email=email).exists():
+                        raise forms.ValidationError("Email already in use")
+                return email

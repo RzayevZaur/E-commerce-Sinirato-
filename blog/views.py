@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import blogforms
 from .models import blogp, Category, comment,Tags
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -36,17 +37,26 @@ def blog(request, pk):
 
 def blogone(request):
     allblog = blogp.objects.order_by("-created").all()
+    page = Paginator(allblog,5)
+    page_list = request.GET.get('page')
+    page = page.get_page(page_list)
+    
+
     categories = Category.objects.all()
     tag=Tags.objects.all()
+    
 
-    context = {"title": "blog page one", "allblog": allblog, "categories": categories,"tag":tag}
+    context = {"title": "blog page one", "allblog": allblog, "categories": categories,"tag":tag,'page':page}
 
     return render(request, "blog-right-sidebar-3.html", context=context)
 
 
 def blogtwo(request, category):
     all = blogp.objects.filter(category__name=category).all()
+    page = Paginator(all,5)
+    page_list = request.GET.get('page')
+    page = page.get_page(page_list)
     categories = Category.objects.all()
     tag=Tags.objects.all()
-    context = {"title": "blog page one", "allblog": all,"categories": categories,"tag":tag}
+    context = {"title": "blog page one", "allblog": all,"categories": categories,"tag":tag,'page':page}
     return render(request, "blog-right-sidebar-3.html", context=context)

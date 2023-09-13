@@ -1,224 +1,182 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% extends 'base.html' %}
 {% load static %}
-{% block container %} 
-    <!-- breadcrumb area s `/ tart -->
-    <div class="breadcrumb-area mb-30">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb-wrap">
-                        <nav aria-label="breadcrumb">
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Blog grid left sidebar</li>
-                            </ul>
-                        </nav>
-                    </div>
+{% block container %}
+<!-- breadcrumb area s `/ tart -->
+<div class="breadcrumb-area mb-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-wrap">
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog grid left sidebar</li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
-    <!-- breadcrumb area end -->
+</div>
+<!-- breadcrumb area end -->
 
-   <!-- blog wrapper start -->
-   <div class="blog-area-wrapper pt-30 pb-40">
-       <div class="container-fluid">
-           <div class="row">
-               <div class="col-lg-9">
-                   <div class="blog-wrapper-inner">
-                       <div class="row">
-                         {% for i in allblog %}
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="single-blogg-item mb-30">
-                                    <div class="blog-thumb-active owl-carousel">
-                                        <div class="blog-thumb blog--hover">
-                                                <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img.url }}" alt=""></a>
-                                        </div>
-                                        <div class="blog-thumb">
-                                                <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img2.url }}" alt=""></a>
-                                        </div>
-                                        <div class="blog-thumb">
-                                            <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img3.url }}" alt=""></a>
-                                        </div>
+<!-- blog wrapper start -->
+<div class="blog-area-wrapper pt-30 pb-40">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="blog-wrapper-inner">
+                    <div class="row">
+                        {% for i in page.object_list %}
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="single-blogg-item mb-30">
+                                <div class="blog-thumb-active owl-carousel">
+                                    <div class="blog-thumb blog--hover">
+                                        <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img.url }}" alt=""></a>
                                     </div>
-                                    <div class="blogg-content">
-                                        <h5><a href="{% url 'blog' pk=i.pk  %}">{{ i.title }}</a></h5>
-                                       
-                                        {{i.description|truncatechars:150|safe}}
+                                    <div class="blog-thumb">
+                                        <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img2.url }}" alt=""></a>
+                                    </div>
+                                    <div class="blog-thumb">
+                                        <a href="{% url 'blog' pk=i.pk  %}"><img src="{{ i.img3.url }}" alt=""></a>
                                     </div>
                                 </div>
+                                <div class="blogg-content">
+                                    <h5><a href="{% url 'blog' pk=i.pk  %}">{{ i.title }}</a></h5>
+
+                                    {{i.description|truncatechars:150|safe}}
+                                </div>
                             </div>
+                        </div>
                         {% endfor %}
-                       </div>
-                   </div>
-                   <div class="paginatoin-area text-center pt-40">
-                        <div class="row">
-                            <div class="col-12">
-                                <ul class="pagination-box">
-                                    <li><a class="Previous" href="#">Previous</a>
-                                    </li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li>
-                                      <a class="Next" href="#"> Next </a>
-                                    </li>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+            <div class="col-lg-3">
+                <div class="shop-sidebar-inner mb-30">
+                    <!-- categories filter start -->
+                    <div class="single-sidebar mb-45">
+                        <div class="sidebar-inner-title mb-25">
+                            <h3>Categories</h3>
+                        </div>
+                        <div class="sidebar-content-box">
+                            <div class="filter-attribute-container">
+                                <ul>
+                                    {% for category in categories %}
+                                    <li><a href="{% url 'category' category.name %}">{{ category.name }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
-                    </div> 
-               </div>
-               <div class="col-lg-3">
-                    <div class="shop-sidebar-inner mb-30">
-                        <!-- categories filter start -->
-                        <div class="single-sidebar mb-45">
-                            <div class="sidebar-inner-title mb-25">
-                                <h3>Categories</h3>
-                            </div>
-                            <div class="sidebar-content-box">
-                                <div class="filter-attribute-container">
-                                    <ul>
-                                        {% for category in categories %}
-                                            <li><a href="{% url 'category' category.name %}">{{ category.name }}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </div>
+                    </div>
+                    <!-- categories filter end -->
+                    <!-- categories filter start -->
+
+
+                    <div class="single-sidebar mb-45">
+                        <div class="sidebar-inner-title mb-25">
+                            <h3>Recent post</h3>
                         </div>
-                        <!-- categories filter end -->
-                        <!-- categories filter start -->
-
-                        
-                        <div class="single-sidebar mb-45">
-                            <div class="sidebar-inner-title mb-25">
-                                <h3>Recent post</h3>
-                            </div>
-                            <div class="sidebar-content-box">
-                                {% for recend in allblog|slice:":4" %}
-                                <div class="filter-attribute-container"> 
-                                    <ul>
-                                        <li><a class="" href="{% url 'blog' recend.pk %}">{{recend.title}}</a></li>
-                                    </ul>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-
-
-                        <!-- categories filter end -->
-                        <!-- categories filter start -->
-                    
-                        <!-- categories filter end -->
-                        <!-- categories filter start -->
-                       
-                        <div class="single-sidebar mb-45">
-                            <div class="sidebar-inner-title mb-25">
-                                <h3>Tag</h3>
-                            </div>
-                            {% for i in tag %}
-                            <div class="sidebar-content-box">
-                                <div class="blog-tag-line">
-                                   
-                                    <a href="{% url 'blog' pk=i.pk  %}">{{i.title}}</a>
-                                   
-                                    
-                                </div>
+                        <div class="sidebar-content-box">
+                            {% for recend in allblog|slice:":4" %}
+                            <div class="filter-attribute-container">
+                                <ul>
+                                    <li><a class="" href="{% url 'blog' recend.pk %}">{{recend.title}}</a></li>
+                                </ul>
                             </div>
                             {% endfor %}
                         </div>
-                       
-                        <!-- categories filter end -->
                     </div>
-                    <!-- sidebar promote picture start -->
-                    <div class="single-sidebar mb-30">
-                        <div class="sidebar-thumb">
-                            <a href="#"><img src="{% static 'ximg/banner/img-static-sidebar.jpg' %}" alt=""></a>
+
+
+                    <!-- categories filter end -->
+                    <!-- categories filter start -->
+
+                    <!-- categories filter end -->
+                    <!-- categories filter start -->
+
+                    <div class="single-sidebar mb-45">
+                        <div class="sidebar-inner-title mb-25">
+                            <h3>Tag</h3>
                         </div>
+                        {% for i in tag %}
+                        <div class="sidebar-content-box">
+                            <div class="blog-tag-line">
+
+                                <a href="{% url 'blog' pk=i.pk  %}">{{i.title}}</a>
+
+
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
-                    <!-- sidebar promote picture end -->
-               </div>
-           </div>
-       </div>
-   </div>
-   <!-- blog wrapper end -->
 
-   <!-- scroll to top -->
-   <div class="scroll-top not-visible">
-        <i class="fa fa-angle-up"></i>
-    </div> <!-- /End Scroll to Top -->
+                    <!-- categories filter end -->
+                </div>
+                <!-- sidebar promote picture start -->
+                <div class="single-sidebar mb-30">
+                    <div class="sidebar-thumb">
+                        <a href="#"><img src="{% static 'ximg/banner/img-static-sidebar.jpg' %}" alt=""></a>
+                    </div>
+                </div>
+                <!-- sidebar promote picture end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- blog wrapper end -->
 
-
-
-
-    {% endblock %}
-
-
-
-
-
-
+<!-- scroll to top -->
+<div class="scroll-top not-visible">
+    <i class="fa fa-angle-up"></i>
+</div> <!-- /End Scroll to Top -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="row my-5">
+  
+    <div class="col-md-4 offset-md-3">
+        <p>page:{{ page.number }}/{{ page.paginator.num_pages }}</p>
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item ">
+        {% if page.has_previous %}
+      <a class="page-link" href="{% url 'blogone' %}?page={{ page.previous_page_number}}" tabindex="-1">Previous</a>
+       {% endif %}
+    </li>
+     {% for num_page in page.paginator.page_range %} 
+     <br>
+      {% if page.number == num_page %}
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="{% url 'blogone' %}?page={{ num_page }}">{{ num_page }}</a>
+    </li>
+    {% else %}
+    <li class="page-item " aria-current="page">
+        <a class="page-link" href="{% url 'blogone' %}?page={{ num_page }}">{{ num_page }}</a>
+      </li>
+    {% endif %}
+    <br>
+    {% endfor %}
+    
+    <li class="page-item">
+        {% if page.has_next %}
+      <a class="page-link" href="{% url 'blogone' %}?page={{page.next_page_number}}">Next</a>
+      {% endif %}
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
 
 
 
+
+{% endblock %}
+
+ 
 

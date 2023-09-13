@@ -3,6 +3,9 @@ from sinrato.utils.base import basemodel
 
 
 # Create your models here.
+
+
+
 class Tags(basemodel):
     title = models.CharField(verbose_name="category name")
 

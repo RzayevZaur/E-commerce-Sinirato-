@@ -1,22 +1,24 @@
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
-from sinrato.utils.base import basemodel
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
+from .managers import CustomUserManager
 
 
-# Create your models here.
+class User(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField( unique=True)
+    first_name=models.CharField(max_length=100)
+    last_name=models.CharField(max_length=100)
 
-class moviep(models.Model):
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    date_joined = models.DateTimeField(default=timezone.now)
 
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
 
-    title=models.CharField(max_length=255,verbose_name='Title of the your user',help_text='max character limit 255')
-    fullname= models.CharField(max_length=20,verbose_name='Your name(Author)',help_text='max 20 character ')
-    is_adviced=models.BooleanField(default=True,verbose_name='do you like  this film')
-
- 
-
-    class Meta:
-        verbose_name='MoviePost'
-        verbose_name_plural='All Movie Posts'
+    objects = CustomUserManager()
 
     def __str__(self):
-        return self.title
-    
+        return self.email

@@ -1,4 +1,7 @@
-{% load static %}
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -50,21 +53,21 @@
                     </div>
                     <div class="col-lg-4 col-12">
                         <div class="box box-right">c
-                            <ul>
-                                <li class="settings">
-                                    <button type="button" class="ha-toggle">My Account<span class="lnr lnr-chevron-down"></span></button>
-                                    <ul class="box-dropdown ha-dropdown">
-                                        <li><a href="{% url 'myaccount'  %}">Register</a></li>
-                                        <li><a href="{% url 'login'  %}">Login</a></li>
-                                    </ul>
-                                </li>
-                                <li class="settings">
-                                    <button type="button" class="ha-toggle">Language<span class="lnr lnr-chevron-down"></span></button>
-                                    <ul class="box-dropdown ha-dropdown">
-                                        <li><a href="login.html"><img src="{% static 'img/icon/en.png'%}" alt=""> English</a></li>
-                                        <li><a href="login.html"><img src="{% static 'img/icon/ge.png'%}" alt=""> Germany</a></li>
-                                    </ul>
-                                </li>
+                
+
+
+                            <li class="settings">
+                                <button type="button" class="ha-toggle">Language<span class="lnr lnr-chevron-down"></span></button>
+                                <ul class="box-dropdown ha-dropdown">
+                                    <li><a href="/en/"><img src="{% static '/img/icon/en.png' %}" alt=""> English</a></li>
+                                    <li><a href="/az/"><img src="{% static '/img/icon/azerbaijan (1).png' %}" alt=""> azerbaycan</a></li>
+                                </ul>
+                            </li>
+
+
+
+
+                                
                                 <li class="currency">
                                     <button type="button" class="ha-toggle">Currency<span class="lnr lnr-chevron-down"></span></button>
                                     <ul class="box-dropdown ha-dropdown">
@@ -83,34 +86,12 @@
                 <div class="row align-items-center">
                     <div class="col-lg-2 col-md-4 col-sm-4 col-12">
                         <div class="logo">
-                            <a href="index.html"><img src="{% static 'img/logo/logo-sinrato.png' %}" alt="brand-logo"></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'img/logo/logo-sinrato.png' %}" alt="brand-logo"></a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-12 order-sm-last">
                         <div class="header-middle-inner">
                             <form action="https://htmldemo.net/sinrato/sinrato/method">
-                                <div class="top-cat hm1">
-                                    <div class="search-form">
-                                         <select>
-                                            <optgroup label="Electronics">
-                                                <option value="volvo">Laptop</option>
-                                                <option value="saab">watch</option>
-                                                <option value="saab">air cooler</option>
-                                                <option value="saab">audio</option>
-                                                <option value="saab">speakers</option>
-                                                <option value="saab">amplifires</option>
-                                            </optgroup>
-                                            <optgroup label="Fashion">
-                                                <option value="mercedes">Womens tops</option>
-                                                <option value="audi">Jeans</option>
-                                                <option value="audi">Shirt</option>
-                                                <option value="audi">Pant</option>
-                                                <option value="audi">Watch</option>
-                                                <option value="audi">Handbag</option>
-                                            </optgroup>
-                                        </select> 
-                                    </div>
-                                </div>
                                 <input type="text" class="top-cat-field" placeholder="Search entire store here">
                                 <input type="button" class="top-search-btn" value="Search">
                             </form>
@@ -119,9 +100,6 @@
                     <div class="col-lg-4 col-md-8 col-12 col-sm-8 order-lg-last">
                         <div class="mini-cart-option">
                             <ul>
-                                <li class="compare">
-                                    <a class="ha-toggle" href="compare.html"><span class="lnr lnr-sync"></span>Product compare</a>
-                                </li>
                                 <li class="wishlist">
                                     <a class="ha-toggle" href="{% url 'wishlist' %}"><span class="lnr lnr-heart"></span><span class="count">1</span>wishlist</a>
                                 </li>
@@ -175,166 +153,21 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="top-main-menu">
-                            <div class="categories-menu-bar">
-                                <div class="categories-menu-btn ha-toggle">
-                                    <div class="left">
-                                        <i class="lnr lnr-text-align-left"></i>
-                                        <span>Browse categories</span>
-                                    </div>
-                                    <div class="right">
-                                        <i class="lnr lnr-chevron-down"></i>
-                                    </div>
-                                </div>
-                                <nav class="categorie-menus ha-dropdown">
-                                    <ul id="menu2">
-                                        <li><a href="shop-grid-left-sidebar.html">Audio & Home Theater <span class="lnr lnr-chevron-right"></span></a>
-                                            <ul class="cat-submenu">
-                                                <li><a href="shop-grid-left-sidebar.html">Home Audio <span class="lnr lnr-chevron-right"></span></a>
-                                                    <ul class="cat-submenu">
-                                                        <li><a href="shop-grid-left-sidebar.html">CD Players & Turntables</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Home Theater Systems</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Receivers & Amplifiers</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Speakers</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Wireless  Audio</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="shop-grid-left-sidebar.html">Blu-ray Disc Players</a></li>
-                                                <li><a href="shop-grid-left-sidebar.html">Curved TVs<span class="lnr lnr-chevron-right"></span></a>
-                                                    <ul class="cat-submenu">
-                                                        <li><a href="shop-grid-left-sidebar.html">CD Players & Turntables</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Home Theater Systems</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Receivers & Amplifiers</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Speakers</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Wireless  Audio</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="shop-grid-left-sidebar.html">Streaming Media Players</a></li>
-                                                <li><a href="shop-grid-left-sidebar.html">OLED TVs</a></li>
-                                                <li><a href="shop-grid-left-sidebar.html">LED & LCD TVs</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop-grid-left-sidebar.html">Video & Home Theater<span class="lnr lnr-chevron-right"></span></a>
-                                            <ul class="cat-submenu category-mega">
-                                                <li class="cat-mega-title"><a href="#">Security Cameras</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">DSLR Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Lense Camera</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Digital Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Mirrorless Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Point</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="cat-mega-title"><a href="#">Mirrorless Cameras</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">DSLR Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Lense Camera</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Digital Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Mirrorless Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Point</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="cat-mega-title"><a href="#">Digital Cameras</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">DSLR Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Lense Camera</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Digital Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Mirrorless Cameras</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Point</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop-grid-left-sidebar.html">Cellphones & Accessories<span class="lnr lnr-chevron-right"></span></a>
-                                            <ul class="cat-submenu">
-                                                <li><a href="shop-grid-left-sidebar.html">CD Players & Turntables</a></li>
-                                                <li><a href="shop-grid-left-sidebar.html">Home Theater Systems</a></li>
-                                                <li><a href="shop-grid-left-sidebar.html">Receivers & Amplifiers</a></li>
-                                                <li><a href="shop-grid-left-sidebar.html">Speakers</a></li>
-                                                <li><a href="shop-grid-left-sidebar.html">Wireless  Audio</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="shop-grid-left-sidebar.html">Top Item</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html">Video Games Consoles</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html">Business & Office</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html">Headphones & Accessories</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html">Quadcopters & Accessories</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html">Network Devices</a></li>
-                                        <li class="category-item-parent hidden"><a href="shop-grid-left-sidebar.html">Smart Watches</a></li>
-                                        <li class="category-item-parent"><a class="more-btn" href="#">More Categories</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
+                         
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        <li><a href="#">HOME<span class="lnr lnr-chevron-down"></span></a>
-                                            <ul class="dropdown">
-                                                <li><a href="{% url 'index' %}">Home</a></li>
-                                               
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">SHOP<span class="lnr lnr-chevron-down"></span></a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">Şhop page <span class="lnr lnr-chevron-right"></span></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="{% url 'crops' %}">Şhop page </a></li>
-                                                       
-                                                    </ul>
-                                                </li>
-                                                
-                                                </li>
-                                                <li><a href="#">Product Details <span class="lnr lnr-chevron-right"></span></a>
-                                                    <ul class="dropdown">
-                                                        <li><a href="{% url 'crops'  %}">Product Details</a></li>
-                                                     
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="static "><a href="#">Pages<span class="lnr lnr-chevron-down"></span></a>
-                                            <ul class="mega-menu mega-full">
-                                                <li class="mega-title"><a href="#">Column one</a>
-                                                    <ul>
-                                                        <li><a href="{% url 'index' %}">Home </a></li>
-                                                   
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title"><a href="#">Column two</a>
-                                                    <ul>
-                                                        <li><a href="{% url 'checkout   }">Check Out</a></li>
-                                                        <li><a href="{% url 'cart' %}">Cart</a></li>
-                                                        <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
-                                                        <li><a href="{% url 'about' %}">about</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title"><a href="#">Column Three</a>
-                                                    <ul>
-                                                        <li><a href="{% url 'crops'  %}">Product Details</a></li>
+                                        <li><a href="{% url 'index' %}">{% translate 'Home' %}</a></li>
+                                        <li><a href="{% url 'about' %}"> {% translate 'about' %}</a></li>
+                                        <li><a href="{% url 'crops' %}">{% translate 'SHOP' %}</a></li>
+                                        <li><a href="{% url 'blogone' %}">BLOG</a></li>
+                                        <li><a href="{% url 'contact'  %}">{% translate 'CONTACT US' %}</a></li>
+                                        <li><a href="{% url 'wishlist' %}"> {% translate 'Wishlist' %}</a></li>
+                                        <li><a href="{% url 'cart' %}"> {% translate 'Cart' %}</a></li>
+                                        <li><a href="{% url 'myaccount' %}"> {% translate 'myaccount' %}</a></li>
+                                        <li><a href="{% url 'login' %}"> {% translate 'login' %}</a></li>
 
-                                                           <li><a href="{% url 'crops'  %}">Şhop page </a></li>
-                                                      
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title"><a href="#">Column Four</a>
-                                                    <ul>
-                                                        <li><a href="{% url 'login'  %}">login</a></li>
-                                                        <li><a href="{% url 'register'  %}">register</a></li>
-                                                        <li><a href="{% url 'myaccount'  %}">my account</a></li>
-                                                        <li><a href="{% url 'contact'  %}">contact us</a></li>
-                                                    </ul>
-                                                </li>
 
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">BLOG<span class="lnr lnr-chevron-down"></span></a>
-                                            <ul class="dropdown">
-                                                <li><a href="{% url 'blogone' %}">Blog Categories</a></li>
-                                             
-                                                <li><a href="#">Blog Details</a></li>
-                                           
-                                            </ul>
-                                        </li>
-                                        <li><a href="{% url 'contact'  %}">CONTACT US</a></li>
                                     </ul>
                                 </nav>
                             </div> <!-- </div> end main menu -->
@@ -372,12 +205,20 @@
                                     <p>Be the First to Know. Sign up for newsletter today</p>
                                 </div>
                                 <div class="newsletter-box">
-                                    <form id="mc-form">
-                                        <input type="email" id="mc-email" autocomplete="off" class="email-box" placeholder="enter your email">
+
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        {% if subscriber_form.email.errors %}
+                                        <div class="alert alert-danger">
+                                            {{ subscriber_form.email.errorrs}}
+                                        </div>
+                                        {% endif %}
+                                        {{ subscriber_form.email }}
                                         <button class="newsletter-btn" type="submit" id="mc-submit">subscribe !</button>
                                     </form>
                                 </div>
                             </div>
+                            
                             <div class="link-follow">
                                 <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
                                 <a href="https://plus.google.com/discover"><i class="fa fa-google-plus"></i></a>
@@ -398,15 +239,16 @@
         <!-- news-letter area end -->
         <!-- footer top area start -->
         <div class="footer-top pt-50 pb-50">
-            <div class="container-fluid">
+            <div class="container-fluid" style="display: flex;">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer-single-widget">
                             <div class="widget-title">
-                                <div class="footer-logo mb-30">
-                                    <a href="index.html">
-                                         <img src="{% static 'img/logo/logo-sinrato.png' %}" alt="">
+                                <!-- <div class="footer-logo mb-30"> -->
+                                    <a href="{% url 'index' %}">
+                                        <img src="{% static 'img/logo/logo-sinrato.png' %}" alt="{% url 'index' %}">
                                     </a>
+                                    
                                 </div>
                             </div>
                             <div class="widget-body">

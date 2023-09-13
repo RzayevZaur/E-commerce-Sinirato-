@@ -2,9 +2,8 @@ from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
 
-
-
-from .models import *
+from .models import corep
+from product.models import shoppagemodel,FeaturedProduct
 from.forms import *
 
 
@@ -12,18 +11,24 @@ from.forms import *
 
 
 def index(request):
-    products = corep.objects.all()
-    FeaturedProduct = corep.objects.all()
-   
+    
+    products = shoppagemodel.objects.all()
+    featured_Product=FeaturedProduct.objects.all()
 
     context = {
 
         'title': 'index page',
         'products': products,
-        'FeaturedProduct':FeaturedProduct
+        'featured_Product':featured_Product
+      
+  
        
     }
     return render(request, 'index.html', context=context)
+
+
+
+
 
 
 
